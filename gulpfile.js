@@ -37,7 +37,7 @@ gulp.task('jshint',function(){
 });
 
 gulp.task('api',function(){
-    return gulp.src('app.js')
+    return gulp.src('api/**/*.js')
         .pipe(gulp.dest('./bin'))
 });
 
@@ -61,8 +61,9 @@ gulp.task('server', function () {
     gulp.watch(['static/scss/**/*.scss'], ['styles']);
     gulp.watch(['static/js/**/*.js'], ['jshint']);
     gulp.watch(['static/images/**/*'], ['img']);
+    gulp.watch(['api/**/*.js'], ['api']);
 
-    gulp.watch(['app.js', 'routes/**/*.js'], [server.run]);
+    gulp.watch(['bin/**/**/.js'], [server.run]);
     gulp.watch(['views/**/*.html'], server.notify);
     gulp.watch(['public/images/**/*'], server.notify);
     gulp.watch(['public/css/**/*.css'], server.notify);
