@@ -1,1 +1,1 @@
-console.log("alan swag");
+console.log("alan");

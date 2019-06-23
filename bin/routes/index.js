@@ -1,10 +1,17 @@
-var express = require("express");
-var router = express.Router();
+"use strict";
 
+var _express = _interopRequireDefault(require("express"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+// var express = require("express");
+var router = _express["default"].Router();
 /* GET home page. */
-router.get("/", function(req, res, next) {
-    console.log("yo")
-  res.render("index", { title: "Express" });
-});
 
+
+router.get("/", function (req, res, next) {
+  res.render("index", {
+    title: "Express"
+  });
+});
 module.exports = router;
