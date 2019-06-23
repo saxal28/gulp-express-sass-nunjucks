@@ -4393,7 +4393,7 @@ serve-favicon@~2.4.2:
 
 serve-static@1.12.6:
   version "1.12.6"
-  resolved "https://registry.yarnpkg.com/serve-static/-/serve-static-1.12.6.tgz#b973773f63449934da54e5beba5e31d9f4211577"
+  resolved "https://registry.yarnpkg.com/serve-src/-/serve-static-1.12.6.tgz#b973773f63449934da54e5beba5e31d9f4211577"
   dependencies:
     encodeurl "~1.0.1"
     escape-html "~1.0.3"

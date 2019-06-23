@@ -14,7 +14,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var env = argv.e; //gulp server -e build  -e后面的值
 
 gulp.task('styles', function() {
-    return gulp.src('static/scss/**/*.scss')
+    return gulp.src('src/scss/**/*.scss')
         .pipe(gulpif(env!='build', sourcemaps.init()))
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(gulpif(env!='build', sourcemaps.write()))
@@ -27,7 +27,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('jshint',function(){
-    return gulp.src('static/js/**/*.js')
+    return gulp.src('src/js/**/*.js')
         .pipe(gulpif(env!='build', sourcemaps.init()))
         .pipe(uglify())
         .pipe(gulpif(env!='build', sourcemaps.write()))
@@ -42,7 +42,7 @@ gulp.task('api',function(){
 });
 
 gulp.task('img',function(){
-    return gulp.src('static/images/**/*')
+    return gulp.src('src/images/**/*')
         .pipe(gulp.dest('./public/images/'))
         .pipe(notify(function(file) {
             return 'img copy done！';
@@ -58,9 +58,9 @@ gulp.task("clean", function(){
 gulp.task('server', function () {
     server.run(['./bin/www']);
 
-    gulp.watch(['static/scss/**/*.scss'], ['styles']);
-    gulp.watch(['static/js/**/*.js'], ['jshint']);
-    gulp.watch(['static/images/**/*'], ['img']);
+    gulp.watch(['src/scss/**/*.scss'], ['styles']);
+    gulp.watch(['src/js/**/*.js'], ['jshint']);
+    gulp.watch(['src/images/**/*'], ['img']);
     gulp.watch(['api/**/*.js'], ['api']);
 
     gulp.watch(['bin/**/**/.js'], [server.run]);
