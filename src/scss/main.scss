@@ -1,7 +1,12 @@
-body{
-    background: yellow;
+html,
+body {
+  background: white;
 }
 
-.animate{
-    transition: all 0.5s linear 0s;  
+h1 {
+    color: green;
+}
+
+.animate {
+  transition: all 0.5s linear 0s;
 }

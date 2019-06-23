@@ -11,7 +11,7 @@ var router = _express["default"].Router();
 
 router.get("/", function (req, res, next) {
   res.render("index", {
-    title: "Express"
+    title: "Expressss"
   });
 });
 module.exports = router;

@@ -80,7 +80,7 @@ gulp.task("clean", function() {
 gulp.task("default", ["styles", "jshint", "api", "img"]);
 
 gulp.task("server", ["default"], function() {
-  server.run(["./bin/www"]);
+  server.run(["./bin/app.js"]);
 
   gulp.watch(["src/scss/**/*.scss"], ["styles"]);
   gulp.watch(["src/js/**/*.js"], ["jshint"]);
