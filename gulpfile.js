@@ -56,7 +56,8 @@ gulp.task("api", function() {
     .src("api/**/*.js")
     .pipe(
       babel({
-        presets: ["@babel/env"]
+        presets: ["@babel/env"],
+        plugins: ["@babel/plugin-transform-runtime"]
       })
     )
     .pipe(gulp.dest("./bin"));

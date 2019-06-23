@@ -1,1 +1,1 @@
-console.log("alanss");
+console.log("script test");

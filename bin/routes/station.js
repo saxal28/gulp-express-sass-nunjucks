@@ -15,7 +15,7 @@ var _express = _interopRequireDefault(require("express"));
 
 var router = _express["default"].Router();
 
-router.get("/",
+router.get("/:id",
 /*#__PURE__*/
 function () {
   var _ref = (0, _asyncToGenerator2["default"])(
@@ -25,8 +25,8 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            res.render("index", {
-              title: "Expressss"
+            res.render("station", {
+              id: req.params.id
             });
 
           case 1:

@@ -1,15 +1,15 @@
-var express = require("express");
-var nunjucks = require("nunjucks");
-var path = require("path");
-var favicon = require("serve-favicon");
-var logger = require("morgan");
-var cookieParser = require("cookie-parser");
-var bodyParser = require("body-parser");
-var index = require("./routes/index");
+import express from "express";
+import nunjucks from "nunjucks";
+import path from "path";
+import logger from "morgan";
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+import index from "./routes/index";
+import station from "./routes/station";
+import favicon from "serve-favicon";
 
 var app = express();
 
-// view engine setup
 nunjucks.configure(path.join(__dirname, "../views"), {
   autoescape: true,
   express: app,
@@ -19,10 +19,10 @@ nunjucks.configure(path.join(__dirname, "../views"), {
 app.set("view engine", "html");
 
 app.use("/", index);
-// app.use('/users', users);
+app.use("/station", station);
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -47,6 +47,4 @@ app.use(function(err, req, res, next) {
   res.render("error");
 });
 
-app.listen(4000, () => console.log("port is"))
-
-// module.exports = app;
+app.listen(4000, () => console.log("port is"));

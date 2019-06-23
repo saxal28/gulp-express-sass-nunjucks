@@ -1,40 +1,45 @@
 "use strict";
 
-var express = require("express");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var nunjucks = require("nunjucks");
+var _express = _interopRequireDefault(require("express"));
 
-var path = require("path");
+var _nunjucks = _interopRequireDefault(require("nunjucks"));
 
-var favicon = require("serve-favicon");
+var _path = _interopRequireDefault(require("path"));
 
-var logger = require("morgan");
+var _morgan = _interopRequireDefault(require("morgan"));
 
-var cookieParser = require("cookie-parser");
+var _cookieParser = _interopRequireDefault(require("cookie-parser"));
 
-var bodyParser = require("body-parser");
+var _bodyParser = _interopRequireDefault(require("body-parser"));
 
-var index = require("./routes/index");
+var _index = _interopRequireDefault(require("./routes/index"));
 
-var app = express(); // view engine setup
+var _station = _interopRequireDefault(require("./routes/station"));
 
-nunjucks.configure(path.join(__dirname, "../views"), {
+var _serveFavicon = _interopRequireDefault(require("serve-favicon"));
+
+var app = (0, _express["default"])();
+
+_nunjucks["default"].configure(_path["default"].join(__dirname, "../views"), {
   autoescape: true,
   express: app,
   noCache: true
 });
-app.set("view engine", "html");
-app.use("/", index); // app.use('/users', users);
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
+app.set("view engine", "html");
+app.use("/", _index["default"]);
+app.use("/station", _station["default"]); // uncomment after placing your favicon in /public
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+app.use((0, _morgan["default"])("dev"));
+app.use(_bodyParser["default"].json());
+app.use(_bodyParser["default"].urlencoded({
   extended: false
 }));
-app.use(cookieParser());
-app.use(express["static"](path.join(__dirname, "../public"))); // catch 404 and forward to error handler
+app.use((0, _cookieParser["default"])());
+app.use(_express["default"]["static"](_path["default"].join(__dirname, "../public"))); // catch 404 and forward to error handler
 
 app.use(function (req, res, next) {
   var err = new Error("Not Found");
@@ -52,4 +57,4 @@ app.use(function (err, req, res, next) {
 });
 app.listen(4000, function () {
   return console.log("port is");
-}); // module.exports = app;
+});
